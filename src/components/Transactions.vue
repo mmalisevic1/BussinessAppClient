@@ -4,13 +4,13 @@
       <span class="pr-3">
         Transactions for {{ months[currentMonth].name }} - {{ currentYear }}
       </span>
-      <v-btn flat icon class="pr-2" v-on:click="gotoMonth(-1)">
+      <v-btn flat icon class="pr-2" @click="gotoMonth(-1)">
         <v-icon>keyboard_arrow_left</v-icon>
       </v-btn>
-      <v-btn flat icon class="pr-2" v-on:click="gotoCurrentMonth">
+      <v-btn flat icon class="pr-2" @click="gotoCurrentMonth">
         <v-icon>today</v-icon>
       </v-btn>
-      <v-btn flat icon v-on:click="gotoMonth(1)">
+      <v-btn flat icon @click="gotoMonth(1)">
         <v-icon>keyboard_arrow_right</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
@@ -23,11 +23,12 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table
-        v-bind:headers="headers"
-        v-bind:items="items"
-        v-bind:search="search"
+        :headers="headers"
+        :items="items"
+        :search="search"
         item-key="_id"
       >
+      <!-- Slot to specify how items are rendered -->
       <template slot="items" slot-scope="props">
         <tr>
           <td>
@@ -60,8 +61,8 @@
         </v-card>
       </template>
 
-      <template slot="pageText" slot-scope="{ pageStart, pageStop }">
-        From {{ pageStart }} to {{ pageStop }}
+      <template slot="pageText" slot-scope="{ pageStart, pageStop, itemsLength }">
+        From {{ pageStart }} to {{ pageStop }} out of {{ itemsLength }}
       </template>
 
     </v-data-table>
