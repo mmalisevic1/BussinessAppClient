@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from './components/Home'
 import Login from './components/Login'
 import HomeNew from './components/HomeNew'
+import StanjeElektrane from './components/StanjeElektrane'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
       path: '/homenew',
       name: 'HomeNew',
       component: HomeNew
+    },
+    {
+      path: '/stanje',
+      name: 'StanjeElektrane',
+      component: StanjeElektrane
     },
     {
       path: '/about',

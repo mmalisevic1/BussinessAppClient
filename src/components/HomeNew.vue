@@ -16,8 +16,10 @@
                 <h4 class="display-1 text-sm-left" >Dobrodošli!</h4>
                 <div class="text-sm-left">
                     <strong>Prijavljen kao: </strong>
-                    <br/>
+                    <span class="ma-0">Maid Suša</span>
+                    <br>
                     <strong class="text-sm-left">Pozicija: </strong>
+                    <span class="ma-0">Generalni direktor</span>
                 </div>
             </v-flex>
         </v-layout>
@@ -119,6 +121,5 @@ export default {
 }
 </script>
 <style scoped>
-
 </style>
 
