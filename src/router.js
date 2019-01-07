@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import HomeNew from './components/HomeNew'
 import StanjeElektrane from './components/StanjeElektrane'
+import Vrijeme from './components/Vrijeme'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
       path: '/stanje',
       name: 'StanjeElektrane',
       component: StanjeElektrane
+    },
+    {
+      path: '/vrijeme',
+      name: 'Vrijeme',
+      component: Vrijeme
     },
     {
       path: '/about',

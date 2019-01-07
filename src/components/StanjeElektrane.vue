@@ -6,7 +6,7 @@
             align-content-start
             wrap>
             <v-flex xs2>
-                <v-switch value="true" disabled>
+                <v-switch v-model="uPogonu" disabled>
                     <template slot="label">
                         <div class="primary--text">
                             Elektrana u pogonu
@@ -34,10 +34,10 @@
                                 <img :src="require('../assets/damir.jpg')" alt="radnik">
                             </v-avatar>
                         </v-flex>
-                        <v-flex sm5 md3 mr-1 hidden-xs-only>
+                        <v-flex sm5 md3 pl-2 mr-1 hidden-xs-only>
                             <strong>{{prijavljeni[0].uposlenik}}</strong>
                         </v-flex>
-                        <v-flex no-wrap xs5 sm3>
+                        <v-flex no-wrap xs5 sm3 ml-1>
                             {{prijavljeni[0].opis}}
                         </v-flex>
                     </v-layout>
@@ -55,10 +55,10 @@
                                 <img :src="require('../assets/nura.jpg')" alt="radnik">
                             </v-avatar>
                         </v-flex>
-                        <v-flex sm5 md3 mr-1 hidden-xs-only>
+                        <v-flex sm5 md3 pl-2 mr-1 hidden-xs-only>
                             <strong>{{prijavljeni[1].uposlenik}}</strong>
                         </v-flex>
-                        <v-flex no-wrap xs5 sm3>
+                        <v-flex no-wrap xs5 sm3 ml-1>
                             {{prijavljeni[1].opis}}
                         </v-flex>
                     </v-layout>
@@ -75,10 +75,10 @@
                                 <img :src="require('../assets/damir.jpg')" alt="radnik">
                             </v-avatar>
                         </v-flex>
-                        <v-flex sm5 md3 mr-1 hidden-xs-only>
+                        <v-flex sm5 md3 mr-1 pl-2 hidden-xs-only>
                             <strong>{{prijavljeni[0].uposlenik}}</strong>
                         </v-flex>
-                        <v-flex no-wrap xs5 sm3>
+                        <v-flex no-wrap xs5 sm3 ml-1>
                             {{prijavljeni[2].opis}}
                         </v-flex>
                     </v-layout>
@@ -97,10 +97,10 @@
                                 <img :src="require('../assets/salko.jpg')" alt="radnik">
                             </v-avatar>
                         </v-flex>
-                        <v-flex sm5 md3 mr-1 hidden-xs-only>
+                        <v-flex sm5 md3 mr-1 pl-2 hidden-xs-only>
                             <strong>{{popravljeni[0].uposlenik}}</strong>
                         </v-flex>
-                        <v-flex no-wrap xs5 sm3>
+                        <v-flex no-wrap xs5 sm3 ml-1>
                             {{popravljeni[0].opis}}
                         </v-flex>
                     </v-layout>
@@ -117,10 +117,10 @@
                                 <img :src="require('../assets/mahir.jpg')" alt="radnik">
                             </v-avatar>
                         </v-flex>
-                        <v-flex sm5 md3 mr-1 hidden-xs-only>
+                        <v-flex sm5 md3 mr-1 pl-2 hidden-xs-only>
                             <strong>{{prijavljeni[3].uposlenik}}</strong>
                         </v-flex>
-                        <v-flex no-wrap xs5 sm3>
+                        <v-flex no-wrap xs5 sm3 ml-1>
                             {{prijavljeni[3].opis}}
                         </v-flex>
                     </v-layout>
@@ -209,6 +209,7 @@ Vue.component('apexchart', VueApexCharts)
 
 export default {
     data: () => ({
+        uPogonu: true,
         seriesBar: [70],
         chartOptionsBar: {
             labels: ['Popravljeni kvarovi']
