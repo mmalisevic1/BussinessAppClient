@@ -2,7 +2,7 @@
     <v-container>
         <v-layout row wrap>
             <v-flex xs12>
-                <h2>Login to Globomantics</h2>
+                <h2>Prijavite se u sistem Hiperion II</h2>
             </v-flex>
             <v-spacer></v-spacer>
             <v-flex xs12 sm6 offset-sm3>
