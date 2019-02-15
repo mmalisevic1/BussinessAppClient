@@ -1,10 +1,13 @@
 <template>
-  <v-card style="width: 100%;">
+<v-container fluid>
+  <v-layout>
+      <div style="width: 100%;">
+      <v-card style="width: 100%;">
     <v-card-title>
-      <span class="pr-3">
-        Transactions for {{ months[currentMonth].name }} - {{ currentYear }}
+      <span class="pr-3 primary--text">
+        Uposlenici solarne elektrane Hiperion II
       </span>
-      <v-btn flat icon class="pr-2" @click="gotoMonth(-1)">
+      <!-- <v-btn flat icon class="pr-2" @click="gotoMonth(-1)">
         <v-icon>keyboard_arrow_left</v-icon>
       </v-btn>
       <v-btn flat icon class="pr-2" @click="gotoCurrentMonth">
@@ -12,11 +15,11 @@
       </v-btn>
       <v-btn flat icon @click="gotoMonth(1)">
         <v-icon>keyboard_arrow_right</v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-spacer></v-spacer>
       <v-text-field
         append-icon="search"
-        label="Search"
+        label="Pretraga"
         single-line
         hide-details
         v-model="search"
@@ -43,13 +46,13 @@
               ></v-text-field>
             </v-edit-dialog>
           </td>
-          <td class="text-xs-left">{{ props.item.transactionType }}</td>
-          <td class="text-xs-left" @click="props.expanded = !props.expanded">
+          <td class="text-xs-center">{{ props.item.transactionType }}</td>
+          <td class="text-xs-center" @click="props.expanded = !props.expanded">
             {{ props.item.description }}
           </td>
-          <td class="text-xs-right">{{ props.item.charge }}</td>
-          <td class="text-xs-right">{{ props.item.deposit }}</td>
-          <td class="text-xs-right">{{ props.item.balance }}</td>
+          <td class="text-xs-center">{{ props.item.charge }}</td>
+          <!-- <td class="text-xs-right">{{ props.item.deposit }}</td>
+          <td class="text-xs-right">{{ props.item.balance }}</td> -->
         </tr>
       </template>
 
@@ -67,10 +70,21 @@
 
     </v-data-table>
   </v-card>
+  </div>
+  <edit-transactions></edit-transactions>
+  </v-layout>
+</v-container>
+
+
 </template>
 
 <script>
+import EditTransactions from './EditTransactions.vue';
 export default {
+  name: 'transactions',
+  components: {
+    EditTransactions
+  },
   data () {
     return {
       months: [
@@ -96,83 +110,67 @@ export default {
       search: '',
       pagination: {},
       headers: [
-        { text: 'Date', align: 'center', sortable: false, value: 'date' },
-        { text: 'Type', align: 'center', sortable: false, value: 'type' },
-        { text: 'Description', align: 'center', sortable: false, value: 'description' },
-        { text: 'Charge (-)', align: 'center', sortable: false, value: 'paymentAmt' },
-        { text: 'Deposit (+)', align: 'center', sortable: false, value: 'depositAmt' },
-        { text: 'Balance', align: 'center', sortable: false, value: 'balance' }
+        { text: 'Ime i prezime', align: 'center', sortable: true, value: 'description' },
+        { text: 'Pozicija', align: 'center', sortable: false, value: 'description' },
+        { text: 'Broj telefona', align: 'center', sortable: false, value: 'description' },
+        { text: 'Status', align: 'center', sortable: false, value: 'description' }
       ],
       items: [
         {
           '_id': '5a8245999f63531c3ce288ba',
           'userId': '5a777f0a75f64a1698221d98',
-          'transactionDate': 'May-14',
-          'transactionType': 'Opening Balance',
-          'description': 'Equity Line Initial Opening Balance',
-          'charge': 12378.0,
-          'deposit': 0.0,
-          'notes': ''
+          'transactionDate': 'Damir Hasanović',
+          'transactionType': 'Inženjer',
+          'description': '061/111-111',
+          'charge': 'Aktivan'
         },
         {
           '_id': '5a8245999f63531c3ce288bb',
           'userId': '5a777f0a75f64a1698221d98',
-          'transactionDate': 'May-15',
-          'transactionType': 'Credit Card',
-          'description': 'Amazon - Whey Protien',
-          'charge': 23.45,
-          'deposit': 0.0,
-          'notes': ''
+          'transactionDate': 'Nura Tanković-Imamović',
+          'transactionType': 'Inženjer',
+          'description': '062/222-222',
+          'charge': 'Aktivan'
         },
         {
           '_id': '5a8245999f63531c3ce288bc',
           'userId': '5a777f0a75f64a1698221d98',
-          'transactionDate': 'May-15',
-          'transactionType': 'Reward',
-          'description': 'New account first charge reward deposit',
-          'charge': 0.0,
-          'deposit': 100.0,
-          'notes': ''
+          'transactionDate': 'Mahir Haskić',
+          'transactionType': 'Tehničar',
+          'description': '063/000-000',
+          'charge': 'Aktivan'
         },
         {
           '_id': '5a8245999f63531c3ce288bd',
           'userId': '5a777f0a75f64a1698221d98',
-          'transactionDate': 'May-15',
-          'transactionType': 'Credit Card',
-          'description': 'Tex-mex lunch',
-          'charge': 12.33,
-          'deposit': 0.0,
-          'notes': ''
+          'transactionDate': 'Kenan Ibrahimović',
+          'transactionType': 'Tehničar',
+          'description': '064/333-333',
+          'charge': 'Aktivan'
         },
         {
           '_id': '5a8245999f63531c3ce288be',
           'userId': '5a777f0a75f64a1698221d98',
-          'transactionDate': 'May-15',
-          'transactionType': 'Deposit',
-          'description': 'May 15 Payroll Deposit',
-          'charge': 0.0,
-          'deposit': 1000.0,
-          'notes': ''
+          'transactionDate': 'Salko Bečić',
+          'transactionType': 'Tehničar',
+          'description': '061/123-456',
+          'charge': 'Aktivan'
         },
         {
           '_id': '5a8245999f63531c3ce288bf',
           'userId': '5a777f0a75f64a1698221d98',
-          'transactionDate': 'May-16',
-          'transactionType': 'Credit Card',
-          'description': 'Quick Trip - gas and car wash',
-          'charge': 38.12,
-          'deposit': 0.0,
-          'notes': 'Gas for the Acura. Got a car wash too.'
+          'transactionDate': 'Sanja Bešlija',
+          'transactionType': 'Rukovodilac sektora za opće poslove',
+          'description': '062/567-452',
+          'charge': 'Bolovanje'
         },
         {
           '_id': '5a8245999f63531c3ce288c0',
           'userId': '5a777f0a75f64a1698221d98',
-          'transactionDate': 'May-16',
-          'transactionType': 'Credit Card',
-          'description': 'Optics World - Vortex Scope',
-          'charge': 833.0,
-          'deposit': 0.0,
-          'notes': 'My wife is going to kill me when she see this!'
+          'transactionDate': 'Tahir Omerović',
+          'transactionType': 'Tehnički sekretar',
+          'description': '061/774-524',
+          'charge': 'Godišnji odmor'
         }
       ]
     }

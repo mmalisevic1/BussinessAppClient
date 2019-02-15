@@ -7,6 +7,8 @@ import HomeNew from './components/HomeNew'
 import StanjeElektrane from './components/StanjeElektrane'
 import Vrijeme from './components/Vrijeme'
 import Proizvodnja from './components/Proizvodnja'
+import Srednja from './components/Srednja'
+import Transactions from './components/Transactions'
 
 Vue.use(Router)
 
@@ -16,6 +18,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/srednja',
+      name: 'Srednja',
+      component: Srednja
     },
     {
       path: '/login',
@@ -45,6 +52,11 @@ export default new Router({
       path: '/proizvodnja',
       name: 'Proizvodnja',
       component: Proizvodnja
+    },
+    {
+      path: '/transactions',
+      name: 'Transactions',
+      component: Transactions
     },
     {
       path: '/about',

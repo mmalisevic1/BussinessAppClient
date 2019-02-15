@@ -131,6 +131,7 @@
 </template>
 <script>
 export default {
+    name: 'Proizvodnja',
     data: () => ({
         seriesLine: [{
         data: [0, 10, -10, 10, -10, 10]
@@ -146,7 +147,8 @@ export default {
             type: 'line',
             zoom: {
                 enabled: false
-            }
+            },
+            background: '#1976D2'
         },
         dataLabels: {
             enabled: false
@@ -178,7 +180,8 @@ export default {
             type: 'line',
             zoom: {
                 enabled: false
-            }
+            },
+            background: '#FF5252'
         },
         dataLabels: {
             enabled: false
@@ -210,7 +213,8 @@ export default {
             type: 'line',
             zoom: {
                 enabled: false
-            }
+            },
+            background: '#4CAF50'
         },
         dataLabels: {
             enabled: false

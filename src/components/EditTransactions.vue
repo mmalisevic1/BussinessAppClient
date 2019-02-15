@@ -16,11 +16,11 @@
         <v-card-title
           class="grey lighten-4 py-4 title"
         >
-          New Transaction
+          Dodaj uposlenika
         </v-card-title>
         <v-container grid-list-sm class="pa-4">
           <v-layout row wrap>
-            <v-flex xs12>
+            <!-- <v-flex xs12>
               <v-menu
                 ref="datePicker"
                 lazy
@@ -46,25 +46,33 @@
                 >
                 </v-date-picker>
               </v-menu>
+            </v-flex> -->
+            <v-flex xs12>
+              <v-text-field
+                prepend-icon="perm_identity"
+                placeholder="Ime i prezime"
+                v-model="transaction.description"
+              ></v-text-field>
             </v-flex>
             <v-flex xs12>
               <v-select
-                prepend-icon="credit_card"
+                prepend-icon="supervisor_account"
                 :items="transactionTypes"
                 v-model="transaction.transactionType"
-                label="Transaction Type"
+                label="Pozicija uposlenika"
                 single-line
                 bottom
               ></v-select>
             </v-flex>
             <v-flex xs12>
               <v-text-field
-                prepend-icon="description"
-                placeholder="Description"
-                v-model="transaction.description"
+                prepend-icon="call"
+                placeholder="Broj telefona"
+                mask="###/###-###"
+                v-model="transaction.notes"
               ></v-text-field>
             </v-flex>
-            <v-flex xs6>
+            <!-- <v-flex xs6>
               <v-text-field
                 prepend-icon="remove_circle"
                 placeholder="Charge (-)"
@@ -79,13 +87,16 @@
                 mask="#########"
                 v-model="transaction.deposit"
               ></v-text-field>
-            </v-flex>
+            </v-flex> -->
             <v-flex xs12>
-              <v-text-field
-                prepend-icon="message"
-                placeholder="Notes"
-                v-model="transaction.notes"
-              ></v-text-field>
+              <v-select
+                prepend-icon="how_to_reg"
+                :items="statusi"
+                v-model="transaction.transactionType"
+                label="Status"
+                single-line
+                bottom
+              ></v-select>
             </v-flex>
           </v-layout>
         </v-container>
@@ -101,7 +112,7 @@
 
 <script>
 export default {
-  name: 'EditTransaction',
+  name: 'EditTransactions',
   data: () => ({
     dialog: false,
     transaction: {
@@ -114,10 +125,17 @@ export default {
       deposit: 0.0
     },
     transactionTypes: [
-      { text: 'Credit Card', value: 'Credit Card' },
-      { text: 'Debit Card', value: 'Debit Card' },
-      { text: 'Check', value: 'Check' },
-      { text: 'Deposit', value: 'Deposit' }
+      { text: 'Inženjer', value: 'Inženjer' },
+      { text: 'Tehničar', value: 'Tehničar' },
+      { text: 'Računovođa', value: 'Računovođa' },
+      { text: 'Rukovodilac sektora za opće poslove', value: 'Rukovodilac sektora za opće poslove' },
+      { text: 'Tehnički sekretar', value: 'Tehnički sekretar' },
+    ],
+    statusi: [
+      { text: 'Aktivan', value: 'Aktivan' },
+      { text: 'Bolovanje', value: 'Bolovanje' },
+      { text: 'Godišnji odmor', value: 'Godišnji odmor' },
+      { text: 'Poslovni put', value: 'Poslovni put' }
     ],
     transactionDatePicker: false
   }),

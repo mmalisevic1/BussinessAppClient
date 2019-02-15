@@ -65,6 +65,7 @@ export default {
     components: {
         'weather': VueWeatherWidget
     },
+    name: 'Vrijeme',
     data: () => ({
         headers: [
             { text: 'Datum', align: 'center', sortable: false, value: 'date' },

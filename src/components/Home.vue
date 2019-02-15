@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <v-navigation-drawer
+  <!-- <v-navigation-drawer
       fixed
       clipped
       app
@@ -8,48 +7,7 @@
     >
       <v-list dense>
         <template v-for="(item, ndx) in menuItems">
-          <v-layout
-            row
-            v-if="item.heading"
-            align-center
-            :key="ndx"
-          >
-            <v-flex xs6>
-              <v-subheader v-if="item.heading">
-                {{ item.heading }}
-              </v-subheader>
-            </v-flex>
-            <v-flex xs6 class="text-xs-center">
-              <a href="#!" class="body-2 black--text">EDIT</a>
-            </v-flex>
-          </v-layout>
-          <v-list-group v-else-if="item.children" v-model="item.model" v-bind:key="ndx" no-action>
-            <v-list-tile slot="item" @click="menuAction">
-              <v-list-tile-action>
-                <v-icon>{{ item.model ? item.icon : item['icon-alt'] }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  {{ item.text }}
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile
-              v-for="(child, i) in item.children"
-              :key="i"
-              @click="menuAction"
-            >
-              <v-list-tile-action v-if="child.icon">
-                <v-icon>{{ child.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  {{ child.text }}
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list-group>
-          <v-list-tile v-else @click="menuAction" v-bind:key="ndx">
+          <v-list-tile :to="item.to" v-bind:key="ndx">
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
@@ -71,53 +29,61 @@
     >
       <v-toolbar-title :style="$vuetify.breakpoint.smAndUp ? '' : 'min-width: 72px'" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-xs-only">Globomantics Rewards</span>
+        <span class="hidden-xs-only">Hiperion II</span>
       </v-toolbar-title>
-      <!-- <v-text-field
-        light
-        solo
-        prepend-icon="search"
-        placeholder="Search"
-        style="max-width: 500px; min-width: 128px"
-      ></v-text-field> -->
-      <!-- <header-actions></header-actions> -->
-    </v-toolbar>
+    </v-toolbar> -->
+
+    <!-- @click="menuAction(ndx)" -->
     <v-content>
       <v-container fluid>
         <v-layout>
-            <transactions></transactions>
+            <!-- <stanje-elektrane v-show="activeComponent == 1"></stanje-elektrane>
+            <proizvodnja v-show="activeComponent == 2"></proizvodnja>
+            <vrijeme v-show="activeComponent == 3"></vrijeme>
+            <transactions v-show="activeComponent == 4"></transactions>
+            <edit-transaction v-show="activeComponent == 4"></edit-transaction> -->
+            <v-fade-transition mode="out-in">
+              <router-view />
+            </v-fade-transition>
         </v-layout>
       </v-container>
     </v-content>
-    <edit-transaction></edit-transaction>
-  </div>
 </template>
 
 <script>
 import Transactions from './Transactions.vue'
 import EditTransaction from './EditTransactions.vue'
+import StanjeElektrane from './StanjeElektrane.vue'
+import Proizvodnja from './Proizvodnja.vue'
+import Vrijeme from './Vrijeme.vue'
 
 export default {
   name: 'Home',
   components: {
     Transactions,
-    EditTransaction
+    EditTransaction,
+    StanjeElektrane,
+    Proizvodnja,
+    Vrijeme
   },
   data: () => ({
     dialog: false,
     drawer: null,
+    activeComponent: 1,
     menuItems: [
-      { icon: 'contacts', text: 'Add Transaction' },
-      { icon: 'history', text: 'Current Month' },
-      { icon: 'content_copy', text: 'Notes' },
-      { icon: 'settings', text: 'Settings' },
-      { icon: 'chat_bubble', text: 'Send feedback' },
-      { icon: 'help', text: 'Help' }
+      { icon: 'home', text: 'Početna stranica', to: '/homenew' },
+      { icon: 'build', text: 'Stanje elektrane', to: '/stanje' },
+      { icon: 'dashboard', text: 'Proizvodnja elektrane', to: '/proizvodnja' },
+      { icon: 'wb_sunny', text: 'Meteorološki uslovi', to: '/vrijeme' },
+      { icon: 'people', text: 'Ljudski resursi', to: '/transactions' }
     ]
   }),
   methods: {
-    menuAction: function () {
-      // TODO
+    menuAction: function (ndx) {
+      if (ndx == 0) {
+        this.$router.push('/homenew');
+      }
+      this.activeComponent = ndx;
     },
     showProfile: function () {
       console.log('show profile clicked!')

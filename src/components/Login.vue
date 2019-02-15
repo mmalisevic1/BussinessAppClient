@@ -26,18 +26,19 @@
 
 <script>
 export default {
+    name: 'login',
     data () {
         return {
             showAlert: false,
             message: '',
             email: '',
             emailRules: [
-                v => !!v || 'Email is required',
-                v => /.+@.+/.test(v) || 'E-mail must be valid'
+                v => !!v || 'Email je obavezan',
+                v => /.+@.+/.test(v) || 'E-mail mora biti validan'
             ],
             password: '',
             passwordRules: [
-                v => !!v || 'Password is required'
+                v => !!v || 'Password je obavezan'
             ]
         }
     },
@@ -45,15 +46,15 @@ export default {
         login: function () {
             const vm = this
             if(vm.password === 'test111') {
-                this.$router.push({ path: '/' })
+                this.$router.push({ path: '/homenew' })
             }
             else {
                 vm.showAlert = true
-                vm.message = 'Email or Password is invalid!'
+                vm.message = 'Email ili Password nisu validni!'
             }
         },
         cancel: function () {
-            console.log('The user does not want to login!')
+            console.log('Korisnik je odbio da se prijavi!')
         }
     }
 }

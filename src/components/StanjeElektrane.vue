@@ -208,6 +208,7 @@ Vue.use(VueApexCharts)
 Vue.component('apexchart', VueApexCharts)
 
 export default {
+    name: 'StanjeElektrane',
     data: () => ({
         uPogonu: true,
         seriesBar: [70],

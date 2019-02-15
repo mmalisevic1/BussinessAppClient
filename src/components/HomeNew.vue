@@ -54,7 +54,7 @@
                         </div>
                     </v-card-title>
                     <v-card-actions>
-                        <v-btn flat color="orange">Prikaži</v-btn>
+                        <v-btn flat color="orange" :to="'stanje'">Prikaži</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -72,7 +72,7 @@
                         </div>
                     </v-card-title>
                     <v-card-actions>
-                        <v-btn flat color="orange">Prikaži</v-btn>
+                        <v-btn flat color="orange" href="/#/proizvodnja">Prikaži</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -90,7 +90,7 @@
                         </div>
                     </v-card-title>
                     <v-card-actions>
-                        <v-btn flat color="orange">Prikaži</v-btn>
+                        <v-btn flat color="orange" href="/#/vrijeme">Prikaži</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -108,7 +108,7 @@
                         </div>
                     </v-card-title>
                     <v-card-actions>
-                        <v-btn flat color="orange">Prikaži</v-btn>
+                        <v-btn flat color="orange" href="/#/transactions">Prikaži</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -116,8 +116,13 @@
     </v-container>
 </template>
 <script>
+import Srednja from './Srednja.vue'
 export default {
-    
+    components: {
+        Srednja
+    },
+    name: 'HomeNew'
+  
 }
 </script>
 <style scoped>
