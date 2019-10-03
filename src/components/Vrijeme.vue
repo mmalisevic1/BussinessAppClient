@@ -84,35 +84,35 @@ export default {
         vrijemeProljece1: [
             {
             '_id': '5a8245999f63531c3ce288ba',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '15°C',
             'osvijetljenost': '68%',
             'panel': 'Panel 1'
             },
             {
             '_id': '5a8245999f63531c3ce288bb',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '20°C',
             'osvijetljenost': '55%',
             'panel': 'Panel 2'
             },
             {
             '_id': '5a8245999f63531c3ce288bc',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '10°C',
             'osvijetljenost': '50%',
             'panel': 'Panel 3'
             },
             {
             '_id': '5a8245999f63531c3ce288bd',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '20°C',
             'osvijetljenost': '52%',
             'panel': 'Panel 4'
             },
             {
             '_id': '5a8245999f63531c3ce288be',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '18°C',
             'osvijetljenost': '54%',
             'panel': 'Panel 5'
@@ -121,35 +121,35 @@ export default {
         vrijemeProljece2: [
             {
             '_id': '5a8245999f63531c3ce288ba',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '16°C',
             'osvijetljenost': '67%',
             'panel': 'Panel 1'
             },
             {
             '_id': '5a8245999f63531c3ce288bb',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '21°C',
             'osvijetljenost': '54%',
             'panel': 'Panel 2'
             },
             {
             '_id': '5a8245999f63531c3ce288bc',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '17°C',
             'osvijetljenost': '49%',
             'panel': 'Panel 3'
             },
             {
             '_id': '5a8245999f63531c3ce288bd',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '20°C',
             'osvijetljenost': '51%',
             'panel': 'Panel 4'
             },
             {
             '_id': '5a8245999f63531c3ce288be',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '19°C',
             'osvijetljenost': '53%',
             'panel': 'Panel 5'
@@ -158,35 +158,35 @@ export default {
         vrijemeLjeto1: [
             {
             '_id': '5a8245999f63531c3ce288ba',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '25°C',
             'osvijetljenost': '78%',
             'panel': 'Panel 1'
             },
             {
             '_id': '5a8245999f63531c3ce288bb',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '26°C',
             'osvijetljenost': '65%',
             'panel': 'Panel 2'
             },
             {
             '_id': '5a8245999f63531c3ce288bc',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '30°C',
             'osvijetljenost': '90%',
             'panel': 'Panel 3'
             },
             {
             '_id': '5a8245999f63531c3ce288bd',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '26°C',
             'osvijetljenost': '72%',
             'panel': 'Panel 4'
             },
             {
             '_id': '5a8245999f63531c3ce288be',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '28°C',
             'osvijetljenost': '84%',
             'panel': 'Panel 5'
@@ -195,35 +195,35 @@ export default {
         vrijemeLjeto2: [
             {
             '_id': '5a8245999f63531c3ce288ba',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '26°C',
             'osvijetljenost': '88%',
             'panel': 'Panel 1'
             },
             {
             '_id': '5a8245999f63531c3ce288bb',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '31°C',
             'osvijetljenost': '95%',
             'panel': 'Panel 2'
             },
             {
             '_id': '5a8245999f63531c3ce288bc',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '24°C',
             'osvijetljenost': '70%',
             'panel': 'Panel 3'
             },
             {
             '_id': '5a8245999f63531c3ce288bd',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '27°C',
             'osvijetljenost': '92%',
             'panel': 'Panel 4'
             },
             {
             '_id': '5a8245999f63531c3ce288be',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '29°C',
             'osvijetljenost': '64%',
             'panel': 'Panel 5'
@@ -232,35 +232,35 @@ export default {
         vrijeme1: [
             {
             '_id': '5a8245999f63531c3ce288ba',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '5°C',
             'osvijetljenost': '68%',
             'panel': 'Panel 1'
             },
             {
             '_id': '5a8245999f63531c3ce288bb',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '2°C',
             'osvijetljenost': '55%',
             'panel': 'Panel 2'
             },
             {
             '_id': '5a8245999f63531c3ce288bc',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '-1°C',
             'osvijetljenost': '50%',
             'panel': 'Panel 3'
             },
             {
             '_id': '5a8245999f63531c3ce288bd',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '0°C',
             'osvijetljenost': '52%',
             'panel': 'Panel 4'
             },
             {
             '_id': '5a8245999f63531c3ce288be',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '1°C',
             'osvijetljenost': '54%',
             'panel': 'Panel 5'
@@ -269,35 +269,35 @@ export default {
         vrijeme2: [
             {
             '_id': '5a8245999f63531c3ce288ba',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '4°C',
             'osvijetljenost': '67%',
             'panel': 'Panel 1'
             },
             {
             '_id': '5a8245999f63531c3ce288bb',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '1°C',
             'osvijetljenost': '54%',
             'panel': 'Panel 2'
             },
             {
             '_id': '5a8245999f63531c3ce288bc',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '-2°C',
             'osvijetljenost': '49%',
             'panel': 'Panel 3'
             },
             {
             '_id': '5a8245999f63531c3ce288bd',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '-1°C',
             'osvijetljenost': '51%',
             'panel': 'Panel 4'
             },
             {
             '_id': '5a8245999f63531c3ce288be',
-            //'datum': '20.12.2018',
+            'datum': '20.12.2018',
             'temperatura': '0°C',
             'osvijetljenost': '53%',
             'panel': 'Panel 5'
@@ -357,6 +357,9 @@ export default {
                     this.vrijeme = this.vrijemeLjeto2;
                 }
                 this.switch = !this.switch;
+            }
+            for (let index = 0; index < this.vrijeme.length; index++) {
+                this.vrijeme[index].datum = this.date;
             }
         }
     }
