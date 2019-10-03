@@ -132,6 +132,9 @@
 <script>
 export default {
     name: 'Proizvodnja',
+    beforeCreate() {
+        Vue.prototype.$appName = this.$appName;
+    },
     data: () => ({
         seriesLine: [{
         data: [0, 10, -10, 10, -10, 10]

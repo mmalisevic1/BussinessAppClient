@@ -74,8 +74,7 @@ export default {
       { icon: 'home', text: 'Početna stranica', to: '/homenew' },
       { icon: 'build', text: 'Stanje elektrane', to: '/stanje' },
       { icon: 'dashboard', text: 'Proizvodnja elektrane', to: '/proizvodnja' },
-      { icon: 'wb_sunny', text: 'Meteorološki uslovi', to: '/vrijeme' },
-      { icon: 'people', text: 'Ljudski resursi', to: '/transactions' }
+      { icon: 'wb_sunny', text: 'Meteorološki uslovi', to: '/vrijeme' }
     ]
   }),
   methods: {

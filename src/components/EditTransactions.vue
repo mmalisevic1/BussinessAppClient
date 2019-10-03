@@ -51,14 +51,14 @@
               <v-text-field
                 prepend-icon="perm_identity"
                 placeholder="Ime i prezime"
-                v-model="transaction.description"
+                v-model="editedItem.transactionDate"
               ></v-text-field>
             </v-flex>
             <v-flex xs12>
               <v-select
                 prepend-icon="supervisor_account"
                 :items="transactionTypes"
-                v-model="transaction.transactionType"
+                v-model="editedItem.transactionType"
                 label="Pozicija uposlenika"
                 single-line
                 bottom
@@ -69,7 +69,7 @@
                 prepend-icon="call"
                 placeholder="Broj telefona"
                 mask="###/###-###"
-                v-model="transaction.notes"
+                v-model="editedItem.description"
               ></v-text-field>
             </v-flex>
             <!-- <v-flex xs6>
@@ -92,7 +92,7 @@
               <v-select
                 prepend-icon="how_to_reg"
                 :items="statusi"
-                v-model="transaction.transactionType"
+                v-model="editedItem.charge"
                 label="Status"
                 single-line
                 bottom
@@ -115,6 +115,7 @@ export default {
   name: 'EditTransactions',
   data: () => ({
     dialog: false,
+    editedItem: {},
     transaction: {
       id: null,
       transactionDate: null,
@@ -139,11 +140,20 @@ export default {
     ],
     transactionDatePicker: false
   }),
+  // props: {
+  //   editedItem: Object
+  // },
   methods: {
     saveTransaction: function () {
       console.log('Saving transaction record:')
       // TODO: wire up Vuex action
-
+      console.log(this.editedItem._id);
+      if (this.editedItem._id == undefined) {
+        this.$emit('addEmployee', this.editedItem);
+      } else {
+        this.$emit('updateEmployee', this.editedItem);
+      }
+      this.editedItem  = {};
       this.dialog = false
     },
     showEditTransactionDialog: function () {

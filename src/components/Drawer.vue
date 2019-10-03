@@ -107,10 +107,14 @@ export default {
       { icon: 'build', text: 'Stanje elektrane', to: '/stanje' },
       { icon: 'dashboard', text: 'Proizvodnja elektrane', to: '/proizvodnja' },
       { icon: 'wb_sunny', text: 'Meteorološki uslovi', to: '/vrijeme' },
-      { icon: 'people', text: 'Ljudski resursi', to: '/transactions' },
       { icon: 'exit_to_app', text: 'Odjava', to: '/login' }
     ]
   }),
+  beforeMount() {
+    if (this.$appName === 'false') {
+      this.menuItems.splice(this.menuItems.length - 2, 0, { icon: 'people', text: 'Ljudski resursi', to: '/transactions' });
+    }
+  },
   methods: {
     menuAction: function (ndx) {
       this.$router.push('/homenew');

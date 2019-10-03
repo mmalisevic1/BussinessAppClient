@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
     name: 'login',
     data () {
@@ -46,7 +47,13 @@ export default {
         login: function () {
             const vm = this
             if(vm.password === 'test111') {
-                this.$router.push({ path: '/homenew' })
+                if (vm.email === 'maid.susa@gmail.com') {
+                    Vue.prototype.$appName = 'false';
+                    this.$router.push({ path: '/homenew' })
+                } else {
+                    Vue.prototype.$appName = 'true';
+                    this.$router.push({ path: '/homenew' })
+                }
             }
             else {
                 vm.showAlert = true

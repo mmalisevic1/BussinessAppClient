@@ -53,6 +53,12 @@
           <td class="text-xs-center">{{ props.item.charge }}</td>
           <!-- <td class="text-xs-right">{{ props.item.deposit }}</td>
           <td class="text-xs-right">{{ props.item.balance }}</td> -->
+          <td class="justify-center">
+            <v-icon small class="mr-2" @click="editItem(props.item)">
+              edit </v-icon>
+            <v-icon small @click="deleteItem(props.item)">
+              delete </v-icon>
+          </td>
         </tr>
       </template>
 
@@ -71,7 +77,7 @@
     </v-data-table>
   </v-card>
   </div>
-  <edit-transactions></edit-transactions>
+  <edit-transactions @updateEmployee="updateEmployee" @addEmployee="addEmployee" ref="editTransactionComp" :editedItem="this.itemToEdit"></edit-transactions>
   </v-layout>
 </v-container>
 
@@ -85,8 +91,12 @@ export default {
   components: {
     EditTransactions
   },
+  beforeCreate() {
+        Vue.prototype.$appName = this.$appName;
+  },
   data () {
     return {
+      itemToEdit: {},
       months: [
         { name: 'Zero', abrev: 'ZZZ', index: 0 },
         { name: 'January', abrev: 'Jan', index: 1 },
@@ -107,17 +117,18 @@ export default {
       balanceCharges: 0,
       balanceDeposits: 0,
       max25chars: (v) => v.length <= 25 || 'Input too long!',
-      search: '',
       pagination: {},
       headers: [
-        { text: 'Ime i prezime', align: 'center', sortable: true, value: 'description' },
-        { text: 'Pozicija', align: 'center', sortable: false, value: 'description' },
+        { text: 'Ime i prezime', align: 'center', sortable: true, value: 'transactionDate' },
+        { text: 'Pozicija', align: 'center', sortable: false, value: 'transactionType' },
         { text: 'Broj telefona', align: 'center', sortable: false, value: 'description' },
-        { text: 'Status', align: 'center', sortable: false, value: 'description' }
+        { text: 'Status', align: 'center', sortable: false, value: 'charge' },
+        { text: 'Akcije', align: 'center', value: 'name', sortable: false }
       ],
+      search: '',
       items: [
         {
-          '_id': '5a8245999f63531c3ce288ba',
+          '_id': '1',
           'userId': '5a777f0a75f64a1698221d98',
           'transactionDate': 'Damir Hasanović',
           'transactionType': 'Inženjer',
@@ -125,7 +136,7 @@ export default {
           'charge': 'Aktivan'
         },
         {
-          '_id': '5a8245999f63531c3ce288bb',
+          '_id': '2',
           'userId': '5a777f0a75f64a1698221d98',
           'transactionDate': 'Nura Tanković-Imamović',
           'transactionType': 'Inženjer',
@@ -133,7 +144,7 @@ export default {
           'charge': 'Aktivan'
         },
         {
-          '_id': '5a8245999f63531c3ce288bc',
+          '_id': '3',
           'userId': '5a777f0a75f64a1698221d98',
           'transactionDate': 'Mahir Haskić',
           'transactionType': 'Tehničar',
@@ -141,7 +152,7 @@ export default {
           'charge': 'Aktivan'
         },
         {
-          '_id': '5a8245999f63531c3ce288bd',
+          '_id': '4',
           'userId': '5a777f0a75f64a1698221d98',
           'transactionDate': 'Kenan Ibrahimović',
           'transactionType': 'Tehničar',
@@ -149,7 +160,7 @@ export default {
           'charge': 'Aktivan'
         },
         {
-          '_id': '5a8245999f63531c3ce288be',
+          '_id': '5',
           'userId': '5a777f0a75f64a1698221d98',
           'transactionDate': 'Salko Bečić',
           'transactionType': 'Tehničar',
@@ -157,7 +168,7 @@ export default {
           'charge': 'Aktivan'
         },
         {
-          '_id': '5a8245999f63531c3ce288bf',
+          '_id': '6',
           'userId': '5a777f0a75f64a1698221d98',
           'transactionDate': 'Sanja Bešlija',
           'transactionType': 'Rukovodilac sektora za opće poslove',
@@ -165,7 +176,7 @@ export default {
           'charge': 'Bolovanje'
         },
         {
-          '_id': '5a8245999f63531c3ce288c0',
+          '_id': '7',
           'userId': '5a777f0a75f64a1698221d98',
           'transactionDate': 'Tahir Omerović',
           'transactionType': 'Tehnički sekretar',
@@ -236,6 +247,29 @@ export default {
       // Load selected month transaction data now...
       this.getPreviousMonthsBalances()
       this.getTransactionsByMonth()
+    },
+    editItem (item) {
+        //this.editedIndex = this.items.indexOf(item)
+        this.itemToEdit = Object.assign({}, item)
+        this.$refs.editTransactionComp._data.editedItem = Object.assign({}, item);
+        console.log(this.$refs.editTransactionComp._data.editedItem);
+        this.$refs.editTransactionComp._data.dialog = true;
+    },
+    updateEmployee (item) {
+      var editedIndex = this.items.findIndex(f => f._id == item._id)
+      var editedItemFinal = Object.assign({}, item)
+      if (editedIndex > -1) {
+        Object.assign(this.items[editedIndex], editedItemFinal)
+      }
+    },
+    addEmployee (item) {
+      var index = Math.max.apply(Math, this.items.map(m => m._id)) + 1;
+      item._id = `${index}`;
+      this.items.push(item);
+    },
+    deleteItem (item) {
+      const index = this.items.indexOf(item)
+      confirm('Da li ste sigurni da želite obrisati ovog uposlenika?') && this.items.splice(index, 1)
     }
   },
   mounted: async function () {
