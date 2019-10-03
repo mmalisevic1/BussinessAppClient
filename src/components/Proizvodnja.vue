@@ -99,7 +99,23 @@
                     </v-card-text>
                 </v-card>
             </v-flex>
-            <v-flex xs12 mt-5>
+            <v-flex xs1 mt-5 mb-0 pb-0 align-self-start="true">
+                <v-btn color="info">
+                    <download-excel
+                        class   = "btn btn-default"
+                        :data   = "proizvodnja"
+                        :fields = "json_fields"
+                        worksheet = "My Worksheet"
+                        name    = "proizvodnja.xls">
+
+                        Export Excel
+
+                    </download-excel>
+                </v-btn>
+            </v-flex>
+           
+            <v-flex xs12 mt-1>
+                
                 <v-card style="width:100%">
                     <v-card-title>
                         <span class="pr-3 primary--text">
@@ -130,6 +146,11 @@
     </v-container>
 </template>
 <script>
+import JsonExcel from 'vue-json-excel';
+import Vue from 'vue';
+Vue.use(JsonExcel)
+Vue.component('downloadExcel', JsonExcel)
+
 export default {
     name: 'Proizvodnja',
     beforeCreate() {

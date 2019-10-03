@@ -135,6 +135,40 @@
                 </div>
             </v-flex>
             <v-flex xs6 pr-1>
+                <div class="text-xs-left">
+                    <v-btn color="info">
+                    <download-excel
+                        class   = "btn btn-default"
+                        :data   = "prijavljeni"
+                        :fields = "json_fields"
+                        worksheet = "My Worksheet"
+                        name    = "prijavljeniKvarovi.xls">
+
+                        Export Excel prijavljeni kvarovi
+
+                    </download-excel>
+                </v-btn>
+                </div>
+                
+            </v-flex>
+            <v-flex xs6 pl-1 align-start="true">
+                <div class="text-xs-left">
+                    <v-btn color="info">
+                    <download-excel
+                        class   = "btn btn-default"
+                        :data   = "popravljeni"
+                        :fields = "json_fields"
+                        worksheet = "My Worksheet"
+                        name    = "popravljeniKvarovi.xls">
+
+                        Export Excel popravljeni kvarovi
+
+                    </download-excel>
+                </v-btn>
+                </div>
+                
+            </v-flex>
+            <v-flex xs6 pr-1>
                 <v-card style="width:100%">
                     <v-card-title>
                         <span class="pr-3 primary--text">
